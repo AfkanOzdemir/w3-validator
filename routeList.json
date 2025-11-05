@@ -1,0 +1,7 @@
+{
+  "routeList": [
+    "http://example.com",
+    "http://example.com/about",
+    "http://example.com/contact"
+  ]
+}

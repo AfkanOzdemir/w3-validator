@@ -60,8 +60,14 @@ export default main;
 const isMainModule = process.argv[1] && (
   process.argv[1].endsWith('main.js') || 
   process.argv[1].endsWith('main.cjs') ||
-  process.argv[1].includes('w3validator')
+  process.argv[1].endsWith('main.ts') ||
+  process.argv[1].includes('w3validator') ||
+  process.argv[1].includes('w3')
 );
+
+// Debug: uncomment to see argv values
+// console.log('DEBUG - process.argv:', process.argv);
+// console.log('DEBUG - isMainModule:', isMainModule);
 
 if (isMainModule) {
   new main();
