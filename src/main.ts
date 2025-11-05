@@ -1,9 +1,10 @@
-#!/usr/bin/env node
-
 import getRawHtml from './getRawHtml';
 import validateHtml from './validateHtml';
 import validationParser from './validationParser';
 import readRouteList from './readRouteList';
+
+// Export all utilities for library usage
+export { getRawHtml, validateHtml, validationParser, readRouteList };
 
 class main {
   constructor() {
@@ -51,4 +52,17 @@ class main {
   }
 }
 
-new main();
+// Export the main class
+export default main;
+
+// Run CLI if executed directly
+// Check if this file is being run as the main module
+const isMainModule = process.argv[1] && (
+  process.argv[1].endsWith('main.js') || 
+  process.argv[1].endsWith('main.cjs') ||
+  process.argv[1].includes('w3validator')
+);
+
+if (isMainModule) {
+  new main();
+}
