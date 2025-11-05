@@ -1,0 +1,61 @@
+{
+  "name": "w3validator",
+  "version": "1.0.0",
+  "description": "W3C HTML validator for Node.js - validate HTML from URLs using W3C validator",
+  "author": "Afkan Ozdemir",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js",
+      "require": "./dist/main.cjs"
+    }
+  },
+  "bin": {
+    "w3": "./dist/main.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "w3c",
+    "html",
+    "validator",
+    "validation",
+    "html5",
+    "w3c-validator",
+    "html-validation",
+    "w3c-validation",
+    "node-validator"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AfkanOzdemir/w3-validator.git"
+  },
+  "homepage": "https://github.com/AfkanOzdemir/w3-validator#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "tsx src/main.ts",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^24.10.0",
+    "tsx": "^4.20.6",
+    "typescript": "~5.9.3",
+    "vite": "^5.4.11"
+  },
+  "dependencies": {
+    "jsdom": "^24.1.3"
+  }
+}
