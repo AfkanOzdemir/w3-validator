@@ -2,9 +2,7 @@ import getRawHtml from './getRawHtml';
 import validateHtml from './validateHtml';
 import validationParser from './validationParser';
 import readRouteList from './readRouteList';
-
-// Export all utilities for library usage
-export { getRawHtml, validateHtml, validationParser, readRouteList };
+import templateCreator from './templateCreator';
 
 class main {
   constructor() {
@@ -52,23 +50,31 @@ class main {
   }
 }
 
-// Export the main class
 export default main;
 
-// Run CLI if executed directly
-// Check if this file is being run as the main module
 const isMainModule = process.argv[1] && (
-  process.argv[1].endsWith('main.js') || 
+  process.argv[1].endsWith('main.js') ||
   process.argv[1].endsWith('main.cjs') ||
   process.argv[1].endsWith('main.ts') ||
   process.argv[1].includes('w3validator') ||
   process.argv[1].includes('w3')
 );
 
-// Debug: uncomment to see argv values
-// console.log('DEBUG - process.argv:', process.argv);
-// console.log('DEBUG - isMainModule:', isMainModule);
+const isTemplateCreator = process.argv[2] === 'create-template';
 
-if (isMainModule) {
+if (isTemplateCreator) {
+  (async () => {
+    try {
+      const creator = new templateCreator('routelist.json');
+      await creator.create();
+      process.exit(0);
+    } catch (error) {
+      console.error('❌ Failed to create template:', error instanceof Error ? error.message : String(error));
+      process.exit(1);
+    }
+  })();
+} else if (isMainModule) {
   new main();
 }
+
+export { getRawHtml, validateHtml, validationParser, readRouteList, templateCreator };

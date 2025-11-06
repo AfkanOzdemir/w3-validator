@@ -1,6 +1,6 @@
 {
   "name": "w3validator",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "W3C HTML validator for Node.js - validate HTML from URLs using W3C validator",
   "author": "Afkan Ozdemir",
   "license": "MIT",
@@ -45,6 +45,7 @@
   "scripts": {
     "dev": "tsx src/main.ts",
     "build": "vite build",
+    "postbuild": "chmod +x dist/main.js",
     "preview": "vite preview",
     "prepublishOnly": "npm run build"
   },
