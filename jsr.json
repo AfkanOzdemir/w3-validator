@@ -1,0 +1,14 @@
+{
+    "name": "@w3validator/w3validator",
+    "version": "1.1.0",
+    "license": "MIT",
+    "exports": "./src/main.ts",
+    "description": "W3C HTML validator for Node.js - validate HTML from URLs using W3C validator",
+    "publish": {
+        "include": [
+            "src/**/*.ts",
+            "README.md",
+            "LICENSE"
+        ]
+    }
+}

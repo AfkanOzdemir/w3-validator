@@ -1,9 +1,22 @@
+/**
+ * Fetches raw HTML content from a given URL
+ */
 class getRawHtml {
 
+    /**
+     * Creates a new getRawHtml instance
+     * @param {string} url - The URL to fetch HTML from
+     */
     constructor(url: string) {
         this.init(url);
     }
 
+    /**
+     * Initializes and fetches HTML content from the specified URL
+     * @param {string} url - The URL to fetch HTML from
+     * @returns {Promise<string>} The raw HTML content
+     * @throws {Error} If the fetch operation fails
+     */
     async init(url: string): Promise<string> {
         const response = await fetch(url, {
             method: "GET",

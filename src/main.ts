@@ -4,11 +4,21 @@ import validationParser from './validationParser';
 import readRouteList from './readRouteList';
 import templateCreator from './templateCreator';
 
+/**
+ * Main class that orchestrates the HTML validation process
+ */
 class main {
+  /**
+   * Creates a new main instance and starts the validation process
+   */
   constructor() {
     this.init();
   }
 
+  /**
+   * Initializes and runs the validation process for all routes
+   * @returns {Promise<void>}
+   */
   async init() {
     try {
       const routeData: string[] = await new readRouteList(process.argv[2]).read();

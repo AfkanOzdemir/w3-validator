@@ -1,15 +1,27 @@
 import { JSDOM } from "jsdom";
 
+/**
+ * Parses W3C validation results from HTML response
+ */
 class validationParser {
 
     private html: string;
     private results: any[] = [];
 
+    /**
+     * Creates a new validationParser instance
+     * @param {string} html - The W3C validator response HTML to parse
+     */
     constructor(html: string) {
         this.html = html;
         this.results = [];
     }
 
+    /**
+     * Parses the validation HTML and extracts error/warning information
+     * @returns {Promise<void>}
+     * @throws {Error} If validation results cannot be found in HTML
+     */
     async parse(): Promise<void> {
         const dom = new JSDOM(this.html);
         const document = dom.window.document;
@@ -48,6 +60,10 @@ class validationParser {
         });
     }
 
+    /**
+     * Formats and returns the parsed validation results as a string
+     * @returns {string} Formatted validation results
+     */
     result(): string {
         var output = "\n=== VALIDATION RESULTS ===\n\n";
 

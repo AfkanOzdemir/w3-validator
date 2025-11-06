@@ -1,10 +1,17 @@
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
+/**
+ * Reads and parses route list from a JSON file
+ */
 class readRouteList {
     private routeListPath: string;
     private filePath: string;
 
+    /**
+     * Creates a new readRouteList instance
+     * @param {string} routeListPath - Path to the route list JSON file
+     */
     constructor(routeListPath: string) {
         this.routeListPath = routeListPath;
         this.filePath = '';
@@ -16,7 +23,12 @@ class readRouteList {
 
     }
 
-    async read() {
+    /**
+     * Reads and parses the route list file
+     * @returns {Promise<string[]>} Array of URLs to validate
+     * @throws {Error} If file cannot be read or parsed
+     */
+    async read(): Promise<string[]> {
         this.filePath = this.routeListPath.startsWith('/') ? this.routeListPath : join(process.cwd(), this.routeListPath);
         console.log(`Reading route list from: ${this.filePath}\n`);
 

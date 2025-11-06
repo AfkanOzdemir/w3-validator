@@ -1,10 +1,17 @@
 import { writeFile } from 'fs/promises';
 import { join } from 'path';
 
+/**
+ * Creates a template route list JSON file
+ */
 class templateCreator {
     private templatePath: string;
     private templateContent: { routeList: string[] };
 
+    /**
+     * Creates a new templateCreator instance
+     * @param {string} templateName - Name of the template file (default: 'routelist.json')
+     */
     constructor(templateName: string = 'routelist.json') {
         this.templatePath = join(process.cwd(), templateName);
         this.templateContent = {
@@ -16,6 +23,11 @@ class templateCreator {
         };
     }
 
+    /**
+     * Creates the template file with example routes
+     * @returns {Promise<void>}
+     * @throws {Error} If file creation fails
+     */
     async create(): Promise<void> {
         try {
             const jsonContent = JSON.stringify(this.templateContent, null, 2);
@@ -27,6 +39,10 @@ class templateCreator {
         }
     }
 
+    /**
+     * Returns the template content
+     * @returns {{ routeList: string[] }} The template object
+     */
     getTemplate(): { routeList: string[] } {
         return this.templateContent;
     }

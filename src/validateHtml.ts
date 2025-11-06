@@ -1,15 +1,28 @@
+/**
+ * Validates HTML content using W3C validator service
+ */
 class validateHtml {
 
     private rawHtml: string;
     private retries: number;
 
+    /**
+     * Creates a new validateHtml instance
+     * @param {string} rawHtml - The raw HTML content to validate
+     * @param {number} retries - Number of retry attempts (default: 3)
+     */
     constructor(rawHtml: string, retries: number = 3) {
         this.rawHtml = rawHtml;
         this.retries = retries;
         this.init();
     }
 
-    async init() {
+    /**
+     * Sends HTML to W3C validator and retrieves validation results
+     * @returns {Promise<string>} The validation result HTML
+     * @throws {Error} If validation fails after all retry attempts
+     */
+    async init(): Promise<string> {
         for (let i = 0; i < this.retries; i++) {
             try {
                 console.log(`Validation attempt ${i + 1} started...`);
