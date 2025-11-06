@@ -18,6 +18,10 @@ Now you can use the `w3` command from anywhere!
 npm install w3validator
 ```
 
+```bash
+npx w3 /path/to/routeList.json
+```
+
 **To uninstall:**
 ```bash
 npm uninstall -g w3validator
