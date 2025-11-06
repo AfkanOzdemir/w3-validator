@@ -1,6 +1,6 @@
 {
   "name": "w3validator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "W3C HTML validator for Node.js - validate HTML from URLs using W3C validator",
   "author": "Afkan Ozdemir",
   "license": "MIT",
