@@ -38,7 +38,15 @@ npm uninstall -g w3validator
 
 ### CLI Usage
 
-1. First, create a `routeList.json` file:
+1. First, create a routeList.json file.
+You can do this manually, or quickly generate a ready-to-use template by running the following command:
+
+```bash
+npx w3 create-template
+```
+
+This command will create a file with the following structure:
+
 ```json
 {
   "routeList": [
